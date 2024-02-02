@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dovenv = require("dotenv").config();
-const app = express();
-
+const cors = require("cors");
+app.use(express.json());
+app.use(cors());
 mongoose.connect(process.env.BASE_URL);
 
 const Film = mongoose.model("Film", {
@@ -12,7 +13,6 @@ const Film = mongoose.model("Film", {
   trailer_url: String,
 });
 
-app.use(express.json());
 app.get("/", async (req, res) => {
   const getFilm = await Film.find();
   res.json(getFilm);
