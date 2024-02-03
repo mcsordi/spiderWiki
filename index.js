@@ -11,6 +11,7 @@ const Film = mongoose.model("Film", {
   description: String,
   image_url: String,
   trailer_url: String,
+  poster_url: String,
 });
 
 app.use(express.json());
@@ -30,6 +31,7 @@ app.post("/", async (req, res) => {
     description: req.body.description,
     image_url: req.body.image_url,
     trailer_url: req.body.trailer_url,
+    poster_url: req.body.poster,
   });
   await film.save();
   res.json(film);
@@ -49,6 +51,7 @@ app.put("/:id", async (req, res) => {
       description: req.body.description,
       image_url: req.body.image_url,
       trailer_url: req.body.trailer_url,
+      poster_url: req.poster_url,
     },
     {
       new: true,
