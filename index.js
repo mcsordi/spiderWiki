@@ -31,7 +31,7 @@ app.post("/", async (req, res) => {
     description: req.body.description,
     image_url: req.body.image_url,
     trailer_url: req.body.trailer_url,
-    poster_url: req.body.poster,
+    poster_url: req.body.poster_url,
   });
   await film.save();
   res.json(film);
