@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dovenv = require("dotenv").config();
+const cors = require("cors");
 const app = express();
+app.use(cors());
 mongoose.connect(process.env.BASE_URL);
 
 const Film = mongoose.model("Film", {
