@@ -51,7 +51,7 @@ app.put("/:id", async (req, res) => {
       description: req.body.description,
       image_url: req.body.image_url,
       trailer_url: req.body.trailer_url,
-      poster_url: req.poster_url,
+      poster_url: req.body.poster_url,
     },
     {
       new: true,
